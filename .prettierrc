@@ -1,0 +1,19 @@
+printWidth: 100
+singleQuote: true
+tabWidth: 2
+useTabs: false
+trailingComma: es5
+semi: false
+arrowParens: always
+quoteProps: consistent
+
+overrides:
+    - files: "*.{ts, tsx, js}"
+      options:
+          parser: typescript
+    - files: "*.json"
+      options:
+          tabWidth: 2
+    - files: "*.yml"
+      options:
+          tabWidth: 2
