@@ -1,0 +1,14 @@
+{
+  "name": "listen_twitter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cuidingfeng/listen_twitter.git",
+  "author": "cuidingfeng@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.7.0"
+  },
+  "scripts": {
+    "start": "node src/puppeteer.js"
+  }
+}
