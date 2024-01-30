@@ -5,11 +5,24 @@
   "repository": "https://github.com/cuidingfeng/listen_twitter.git",
   "author": "cuidingfeng@gmail.com",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "puppeteer": "^21.7.0"
+    "@babel/core": "^7.23.9",
+    "@babel/plugin-transform-runtime": "^7.23.9",
+    "antd": "^5.13.3",
+    "axios": "^1.6.7",
+    "mysql2": "^3.9.0",
+    "next": "^14.1.0",
+    "puppeteer": "^21.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8"
   },
   "scripts": {
-    "start": "node src/puppeteer.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "start1": "node src/puppeteer.js",
     "start:prod": " xvfb-run --server-args=\"-screen 0 1280x1024x24\" node src/puppeteer.js"
   }
 }
