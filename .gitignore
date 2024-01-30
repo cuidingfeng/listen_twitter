@@ -18,3 +18,4 @@
 .env.dev
 .cache
 yarn.lock
+.next
