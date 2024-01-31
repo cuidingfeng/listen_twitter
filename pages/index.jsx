@@ -1,6 +1,7 @@
 import React from 'react';
 import { Divider, Collapse } from 'antd';
 import TwitterUser from '../components/TwitterUser';
+import KeyWord from '../components/KeyWord';
 
 const items = [
     {
@@ -11,7 +12,7 @@ const items = [
     {
         key: '2',
         label: '监控的关键词',
-        children: <p>2434</p>,
+        children: <KeyWord />,
     },
     {
         key: '3',

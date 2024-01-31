@@ -11,52 +11,52 @@ const StyleTag = styled(Tag)`
     }
 `
 
-function TwitterUser(props) {
+function KeyWord(props) {
     const [inputValue, setInputValue] = useState('')
-    const [users, setUsers] = useState([])
+    const [keywords, setKeywords] = useState([])
     const onChange = useCallback((e) => {
         setInputValue(e.target.value)
     }, [])
-    const pullUser = useCallback(() => {
-        getUrl('get_user', {
+    const pullKeyWord = useCallback(() => {
+        getUrl('get_keyword', {
             u_id: '001'
         }).then(({ data }) => {
-            setUsers(data.map(user => user.x_id));
+            setKeywords(data.map(user => user.keyword));
         })
     }, [])
     const onAdd = useCallback(() => {
-        push('save_user', {
-            x_id: inputValue,
+        push('save_keyword', {
+            keyword: inputValue,
             u_id: '001'
         }).then(() => {
-            setUsers([...users, inputValue])
+            setKeywords([...keywords, inputValue])
             setInputValue('')
         })
-    }, [users, inputValue])
-    const onDelete = useCallback((x_id) => {
-        push('delete_user', {
-            x_id: x_id,
+    }, [keywords, inputValue])
+    const onDelete = useCallback((keyword) => {
+        push('delete_keyword', {
+            keyword: keyword,
             u_id: '001'
         }).then(() => {
-            pullUser()
+            pullKeyWord()
         })
     }, [])
     useEffect(() => { 
-        pullUser()
+        pullKeyWord()
     }, [])
     return (
         <Space direction="vertical" size="middle" style={{ width: '100%' }}>
             <Space.Compact style={{ width: '100%' }}>
-                <Input defaultValue="" placeholder='Twitter用户名，就是@后面的名称，或者地址栏上的名称' value={inputValue} onInput={onChange}  />
+                <Input defaultValue="" placeholder='希望推文中涉及到的内容' value={inputValue} onInput={onChange}  />
                 <Button type="primary" onClick={onAdd}>添加</Button>
             </Space.Compact>
             <Space.Compact style={{ width: '100%' }}>
-                {users.map((user) => (
-                    <StyleTag key={user} closable bordered={false} onClose={onDelete.bind(null, user)}>{user}</StyleTag>
+                {keywords.map((keyword) => (
+                    <StyleTag key={keyword} closable bordered={false} onClose={onDelete.bind(null, keyword)}>{keyword}</StyleTag>
                 ))}
             </Space.Compact>
         </Space>
     );
 }
 
-export default TwitterUser;
+export default KeyWord;
